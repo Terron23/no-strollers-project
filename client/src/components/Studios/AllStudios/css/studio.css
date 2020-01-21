@@ -1,0 +1,142 @@
+
+
+.single-room-area {
+    position: relative;
+    z-index: 1; }
+    @media only screen and (max-width: 767px) {
+      .single-room-area {
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap; } }
+    .single-room-area .room-thumbnail {
+      position: relative;
+      z-index: 1;
+      -webkit-box-flex: 0;
+      -ms-flex: 0 0 50%;
+      flex: 0 0 50%;
+      max-width: 50%;
+      width: 50%; }
+      @media only screen and (max-width: 767px) {
+        .single-room-area .room-thumbnail {
+          -webkit-box-flex: 0;
+          -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
+          max-width: 100%;
+          width: 100%;
+          margin-bottom: 30px; } }
+      .single-room-area .room-thumbnail img.search-img {
+        width:403px;
+        height:330px;
+        border-radius: 4px; }
+    .single-room-area .room-content {
+      position: relative;
+      z-index: 1;
+      padding-left: 35px; }
+      @media only screen and (max-width: 767px) {
+        .single-room-area .room-content {
+          -webkit-box-flex: 0;
+          -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
+          max-width: 100%;
+          width: 100%;
+          padding-left: 0; } }
+      .single-room-area .room-content h2 {
+        font-size: 30px;
+        display: block;
+        margin-bottom: 5px; }
+        @media only screen and (min-width: 992px) and (max-width: 1199px) {
+          .single-room-area .room-content h2 {
+            font-size: 24px; } }
+        @media only screen and (max-width: 767px) {
+          .single-room-area .room-content h2 {
+            font-size: 24px; } }
+      .single-room-area .room-content h4 {
+        color: #1cc3b2;
+        margin-bottom: 20px; }
+        .single-room-area .room-content h4 span {
+          color: #afb4bf;
+          font-size: 14px; }
+      .single-room-area .room-content .room-feature {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        position: relative;
+        z-index: 1;
+        margin-bottom: 20px; }
+        .single-room-area .room-content .room-feature h6 {
+          -webkit-box-flex: 0;
+          -ms-flex: 0 0 50%;
+          flex: 0 0 50%;
+          max-width: 50%;
+          width: 50%;
+          font-weight: 400;
+          color: #afb4bf;
+          margin-bottom: 10px; }
+          @media only screen and (min-width: 992px) and (max-width: 1199px) {
+            .single-room-area .room-content .room-feature h6 {
+              font-size: 14px; } }
+          .single-room-area .room-content .room-feature h6 span {
+            color: #2a303b;
+            display: block; }
+      .single-room-area .room-content .view-detail-btn {
+        padding: 0;
+        font-size: 16px;
+        color: #1cc3b2;
+        font-weight: 500; }
+        .single-room-area .room-content .view-detail-btn:hover, .single-room-area .room-content .view-detail-btn:focus {
+          color: #000000; }
+
+ul.studio-search-list li{
+  list-style: none;
+  color:#a1a4aa
+}
+
+
+.mobile-search{
+        display:none;
+    }
+    
+    @media only screen and (max-width: 1000px) {
+        .mobile-search{
+            display:block;
+   
+        }
+        .center-modal-body{
+         display: flex;
+       align-items: center;
+       justify-content: center; 
+       
+        }
+        .web-search{
+            display: none;
+            height:0;
+            width:0;
+        }
+        }
+
+    .modal-close{
+        font-weight: 600;
+        cursor: pointer;
+        padding-right: 50px;
+        font-size: 1.3em;
+    }
+
+    .modal-close-button:hover{
+      background-color: #45D6D6 !important;
+    }
+
+    .modal-close:hover{
+        font-weight: 600;
+        padding-right: 50px;
+        font-size: 1.3em;
+        color: #45D6D6 !important;
+    }
+      
+    .studio-search-form-style-8 input:focus,  .studio-search-form-style-8 select:focus, textarea:focus{
+        outline: none !important;
+        -webkit-box-shadow: none !important;
+        box-shadow: none !important;
+        border: 1px solid #34CACA !important;
+      }
+   

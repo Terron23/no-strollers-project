@@ -1,0 +1,34 @@
+
+div.studiohunt-datepicker-tag {
+    width:100% !important;
+   
+}
+
+.studiohunt-datepicker-calendar-class{
+    position:fixed;
+    bottom: 0;
+    right: 30%;
+    left:30%;
+    z-index: 99 !important;
+    
+}
+
+.calendar-class{
+    width:100%;
+}
+
+
+
+@media only screen and (max-width: 767px) {
+    .studiohunt-datepicker-calendar-class{
+        position:fixed;
+        bottom: 0;
+        right: 0;
+        left:0;
+        
+    }
+    div.studiohunt-datepicker-tag {
+        width:100% !important;
+       
+    }
+    }

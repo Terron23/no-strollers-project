@@ -1,0 +1,100 @@
+.single-project-slide {
+    position: relative;
+    z-index: 1;
+    height: 800px;
+    overflow: hidden;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    border-left: 1px solid rgba(255, 255, 255, 0.2); }
+    @media only screen and (max-width: 767px) {
+      .single-project-slide {
+        height: 650px; } }
+    @media only screen and (min-width: 992px) and (max-width: 1199px) {
+      .single-project-slide {
+        height: 700px; } }
+    @media only screen and (min-width: 768px) and (max-width: 991px) {
+      .single-project-slide {
+        height: 650px; } }
+    .single-project-slide .project-content {
+      position: absolute;
+      width: 100%;
+      height: 100px;
+      bottom: 0;
+      left: 0;
+      z-index: 10;
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 0 30px;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center; }
+      .single-project-slide .project-content .text h6 {
+        color: #ffffff; }
+      .single-project-slide .project-content .text h5 {
+        color: #ffffff;
+        margin-bottom: 0; }
+    .single-project-slide .hover-effects {
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+      left: 0;
+      background-color: #1cc3b2;
+      z-index: 100;
+      -webkit-transform: translateY(100%);
+      -ms-transform: translateY(100%);
+      transform: translateY(100%);
+      opacity: 0;
+      visibility: hidden;
+      -webkit-transition-duration: 800ms;
+      -o-transition-duration: 800ms;
+      transition-duration: 800ms; }
+      .single-project-slide .hover-effects .text {
+        padding: 30px; }
+        .single-project-slide .hover-effects .text h6 {
+          color: #ffffff; }
+        .single-project-slide .hover-effects .text h5 {
+          color: #ffffff;
+          margin-bottom: 10px; }
+        .single-project-slide .hover-effects .text p {
+          margin-bottom: 0;
+          color: #ffffff; }
+      .single-project-slide .hover-effects .project-btn {
+        font-size: 16px;
+        padding: 0 30px;
+        display: block;
+        background-color: #0e2737;
+        border-radius: 0;
+        color: #ffffff;
+        text-align: left;
+        font-weight: 500;
+        height: 100px;
+        width: 100%;
+        line-height: 100px; }
+    .single-project-slide.active .hover-effects {
+      -webkit-transform: translateY(0%);
+      -ms-transform: translateY(0%);
+      transform: translateY(0%);
+      opacity: 1;
+      visibility: visible; }
+  
+  /* :: 12.0 CTA CSS */
+  .roberto-cta-area {
+    position: relative;
+    z-index: 1; }
+    .roberto-cta-area .cta-content {
+      padding-top: 50px;
+      padding-left: 50px;
+      padding-right: 50px; }
+    .roberto-cta-area .cta-text h2 {
+      color: #ffffff;
+      font-size: 36px;
+      margin-bottom: 10px; }
+    .roberto-cta-area .cta-text h6 {
+      margin-bottom: 0;
+      color: #ffffff; }
+
+    .city-img img{
+      width: 390px;
+      height: 290px;
+    }

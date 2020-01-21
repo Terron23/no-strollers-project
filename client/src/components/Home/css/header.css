@@ -1,0 +1,28 @@
+.section-heading {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 50px; }
+    .section-heading h6 {
+      text-transform: uppercase;
+      color: #1cc3b2;
+      letter-spacing: 2px;
+      display: block;
+      margin-bottom: 10px; }
+    .section-heading h2 {
+      font-size: 42px;
+      text-transform: capitalize;
+      margin-bottom: 0;
+      display: block;
+      line-height: 1.2; }
+      @media only screen and (min-width: 992px) and (max-width: 1199px) {
+        .section-heading h2 {
+          font-size: 36px; } }
+      @media only screen and (min-width: 768px) and (max-width: 991px) {
+        .section-heading h2 {
+          font-size: 30px; } }
+      @media only screen and (max-width: 767px) {
+        .section-heading h2 {
+          font-size: 24px; } }
+    .section-heading.white h6,
+    .section-heading.white h2 {
+      color: #ffffff; }

@@ -1,0 +1,26 @@
+.form-nav{
+    background-color: #0e2737;
+    height: 100%;
+}
+
+
+.form-list{
+    position: sticky;
+    top: 20px;
+}
+
+.form-list li{
+    color: white;
+    padding: 25px;
+    font-size: 20px;
+    margin-top: 20px;
+    
+}
+
+.active i{
+   color: #45D6D6;
+}
+.inactive{
+    color: lightgray;
+    opacity: .8;
+}

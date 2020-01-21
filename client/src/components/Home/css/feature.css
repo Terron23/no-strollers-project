@@ -1,0 +1,49 @@
+
+
+
+  
+ 
+  
+
+  .gallery-img{
+    height: 243px !important;
+    width: 350px !important;
+  }
+  
+
+
+
+  .ad_filter{
+    cursor: pointer;
+    color: lightgray;
+    }
+    
+  
+      h3.feature-name{
+        font-weight: bold;
+        font-size:1.2em;
+        display:inline;
+        }
+      
+        .feature-price{
+          color: #1cc3b2;
+          font-size:1.2em;
+          display:inline;
+        }
+        .feature-section{
+          padding-top: 100px;
+        }
+        
+        .feature-gallery{
+          padding:20px;
+          margin: 0;
+        }
+.container-fluid-feature{
+  padding-left: 5%;
+  padding-right: 5%;
+}
+        
+      
+      
+      
+      
