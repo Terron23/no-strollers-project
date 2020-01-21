@@ -23,7 +23,7 @@ var allowCrossDomain = function(req, res, next) {
   next();
 };
 
-app.use(allowCrossDomain);
+app.use(allowCrossDomain)
 
 app.use(
   cookieSession({
