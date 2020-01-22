@@ -74,7 +74,7 @@ toggleNavigation =()=> {
             className="studio-nav"
           >
             <Navbar.Brand className="mr-auto">
-              <a href="/"><img src={logo} width="80px" /></a>
+              <a href="/"><img src={logo} width="80px" /></a>Beta
             </Navbar.Brand>
         
             <Navbar.Collapse id="basic-navbar-nav" className="web-nav">

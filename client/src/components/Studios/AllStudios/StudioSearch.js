@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchLocation, fetchStudio, fetchStudioType } from "../../../actions";
+import { fetchStudio, fetchStudioType } from "../../../actions";
 import StudioSearchTemplate from "./sub_components/StudioSearchTemplate";
 import StudioSearchHeader from "./sub_components/StudioSearchHeader";
 import StudioSideFilter from "./sub_components/StudioSideFilter";
@@ -217,7 +217,7 @@ class StudioSearch extends Component {
   };
 
   render() {
-    if (!this.props.studio || !this.props.locate) {
+    if (!this.props.studio) {
       return <Loading />;
     }
     let {
@@ -294,11 +294,10 @@ class StudioSearch extends Component {
 }
 
 function mapStateToProps({ locate, studio, type }) {
-  return { locate, studio, type };
+  return { studio, type };
 }
 
 export default connect(mapStateToProps, {
-  fetchLocation,
   fetchStudio,
   fetchStudioType
 })(StudioSearch);

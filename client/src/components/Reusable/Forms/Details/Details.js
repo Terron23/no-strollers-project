@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import axios from "axios";
-import { fetchUser, fetchStudioType } from "../../../actions";
-import Title from "./Reusable/Title/Title";
-import Input from "../../Reusable/FormElements/Input/Input";
-import TextArea from "../../Reusable/FormElements/TextArea/TextArea";
-import MultiSelect from "../../Reusable/MultiSelect/MultiSelect";
-import "../AddStudioForm/css/style.css";
+import { fetchUser, fetchStudioType } from "../../../../actions";
+// import Title from "./Reusable/Title/Title";
+import Input from "../../FormElements/Input/Input"
+import TextArea from "../../FormElements/TextArea/TextArea";
+import MultiSelect from "../../MultiSelect/MultiSelect";
+
 
 class Details extends Component {
   constructor(props) {
@@ -51,27 +51,12 @@ class Details extends Component {
         dates: obj
       })
       .then(res => {
-        this.props.history.push(`/view-studio/${studioid}`);
+        alert("Successfully Updated")
       })
       .catch(err => console.log(err));
   };
 
-  handleOptions = () => {
-    return [
-      "Audio",
-      "Engineering",
-      "Production",
-      "Coaching",
-      "Free Wifi",
-      "Drinks",
-      "Food",
-      "Television"
-    ].map((op, i) => (
-      <option selected="true" key={i}>
-        {op}
-      </option>
-    ));
-  };
+
 
   render() {
     if (!this.props.auth || !this.props.studiotype) {
@@ -80,12 +65,11 @@ class Details extends Component {
     return (
       <div className="container-fluid site-section">
         <div className="container">
-          <Title headerTitle="Add Studio Details" />
+          {/* <Title headerTitle="Add Studio Details" /> */}
           <div className="row">
-            <div className="col-md-2"></div>
             <form
               id="myForm"
-              className="form-horizontal col-md-8 "
+              className="form-horizontal col-md-12 "
               onSubmit={this.handleSubmit}
             >
               <fieldset>
@@ -188,7 +172,7 @@ class Details extends Component {
               </fieldset>
             </form>
 
-            <div className="col-md-2"></div>
+          
           </div>
         </div>
       </div>

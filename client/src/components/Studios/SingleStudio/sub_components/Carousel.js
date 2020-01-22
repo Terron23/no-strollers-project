@@ -22,15 +22,16 @@ export default class Carousel extends Component {
 
   render() {
     const images = this.state.images;
-
+    let  {highlight} = this.props;
     return (
       <ImageGallery
         items={images}
         lazyLoad={true}
         showBullets={true}
-        showFullscreenButton={true}
-        additionalClass="single-studio-gallery"
-        showThumbnails={true}
+        showFullscreenButton={false}
+        additionalClass={`single-studio-gallery`}
+        originalClass={highlight}
+        showThumbnails={false}
         useBrowserFullscreen={true}
         autoPlay={true}
         

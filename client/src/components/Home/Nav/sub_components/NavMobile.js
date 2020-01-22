@@ -40,7 +40,6 @@ const NavMobile =({toggleNavigation, renderContent, showResponsivenavbar, reveal
 
       <li>
           <Nav.Link className="navFade"  href="/search-studio">
-       
           Book Now{" "}
           <i className="fa fa-long-arrow-right" aria-hidden="true"></i>
         </Nav.Link >

@@ -1,0 +1,23 @@
+.studio-hunt-navbar-nav{
+    position:fixed;
+    top:.1% ;
+    left: -650px !important;
+    width:600px !important;
+    -moz-transition:all 300ms ease-in !important;
+    -webkit-transition:all 300ms ease-in !important;
+    -o-transition:all 300ms ease-in !important;
+    transition:all 300ms ease-in !important;
+    height: 100% !important;
+    background-color: #0e2737;
+    padding:30px; 
+    overflow-y: scroll;
+   
+}
+
+
+
+
+
+.open  .studio-hunt-navbar-nav{
+left: 0 !important;
+}
