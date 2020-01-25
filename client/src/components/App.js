@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter, Route, Redirect } from "react-router-dom";
+import { Router, Route, Redirect } from "react-router-dom";
 import Header from "./Home/Header";
 import Home from "./Home/Home";
 import ListStudio from "./ListStudio/AddStudioForm/ListStudio";
@@ -21,7 +21,7 @@ import Faq from "./FAQ/Faq";
 import ViewStudio from "./ListStudio/ViewStudio/ViewStudio";
 import ScrollTop from "./Reusable/ScrollTop/ScrollTop";
 import Loading from "./Reusable/Loading/Loading";
-
+import history from './Reusable/Helpers/History'
 
 
 
@@ -38,7 +38,7 @@ class App extends Component {
 
   render() {
     return (
-      <BrowserRouter>
+      <Router history={history}>
         <ScrollTop>
           <Header />
 
@@ -46,7 +46,7 @@ class App extends Component {
           <Route path="/sign-up" component={SignUp} />
 
           <Route path="/log-in" component={Login} />
-          <Route path="/post-studio" component={ListStudio} />
+          <Route path="/post-studio/:id?" component={ListStudio} />
           <Route
             path="/search-studio/:search?/:location?/:startdate?"
             component={StudioSearch}
@@ -66,7 +66,7 @@ class App extends Component {
           <Route path="/faqs" component={Faq} />
           <Footer />
         </ScrollTop>
-      </BrowserRouter>
+      </Router>
     );
   }
 }

@@ -6,7 +6,7 @@ class SelectBox extends React.Component {
     super(props);
     this.state = {
       hide: true,
-      text: "",
+      text: this.props.value || "",
       arr: [],
       newOptions: "",
       newText: [],
@@ -130,7 +130,6 @@ class SelectBox extends React.Component {
    
        this.setState({text: newTextArr.join(" ,"), arr:arr})
 
-      console.log(this.state.arr, value, "text", this.state.text, )
       document.getElementById(`${id}`).value=""
     }
     

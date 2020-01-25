@@ -17,6 +17,7 @@
     "dotenv": "^6.2.0",
     "google-map-react": "^1.1.5",
     "google-maps-react": "^2.0.2",
+    "history": "^4.10.1",
     "http-proxy-middleware": "^0.20.0",
     "material-css": "^0.7.0",
     "materialize-css": "^1.0.0",

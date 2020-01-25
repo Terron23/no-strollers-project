@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import axios from "axios";
-import { fetchUser, fetchStudioType } from "../../../../actions";
-// import Title from "./Reusable/Title/Title";
-import Input from "../../FormElements/Input/Input"
+import { fetchUser, fetchSingleStudio} from "../../../../actions";
+import Title from "../../Title/Title";
+import Input from "../../FormElements/Input/Input";
 import TextArea from "../../FormElements/TextArea/TextArea";
 import MultiSelect from "../../MultiSelect/MultiSelect";
+import { Row, Col } from "react-bootstrap";
+import history from "../../Helpers/History"
 
 
 class Details extends Component {
@@ -20,6 +22,7 @@ class Details extends Component {
 
   componentDidMount() {
     this.props.fetchUser();
+    this.props.fetchSingleStudio(this.props.studioid);
   }
 
   handleSubmit = event => {
@@ -30,9 +33,10 @@ class Details extends Component {
     let services = event.target.services.value;
     let description = event.target.description.value;
     let include = event.target.include.value;
-    let studioname = this.props.match.params.studioName;
-    let studioid = this.props.match.params.id;
+    let studioname = this.props.studioName;
+    let studioid = this.props.studioid;
     let dates = event.target.days.value;
+    let rules = event.target.rules.value;
 
     let obj = {};
     dates.split(",").map((d, i) => {
@@ -48,31 +52,58 @@ class Details extends Component {
         studioname,
         include,
         studioid,
-        dates: obj
+        dates: obj,
+        rules
       })
       .then(res => {
-        alert("Successfully Updated")
+       history.push(`/view-studio/${studioid}`);
       })
       .catch(err => console.log(err));
   };
 
+  handleOptions = () => {
+    return [
+      "Audio",
+      "Engineering",
+      "Production",
+      "Coaching",
+      "Free Wifi",
+      "Drinks",
+      "Food",
+      "Television"
+    ].map((op, i) => (
+      <option selected="true" key={i}>
+        {op}
+      </option>
+    ));
+  };
 
+  handleNull =(key, value) =>{
+    return (value == null) ? "" : value
+}
 
   render() {
-    if (!this.props.auth || !this.props.studiotype) {
+    if (!this.props.auth || !this.props.studio || this.props.studio.length < 1) {
       return "Loading...";
     }
+  
+    let {classProp, children, showTitle, submitText="Submit", studio} = this.props;
     return (
+      <Row>
+        {children}
+        <Col>
       <div className="container-fluid site-section">
         <div className="container">
-          {/* <Title headerTitle="Add Studio Details" /> */}
+          {showTitle ? <Title headerTitle="Add Studio Details" />:""}
           <div className="row">
+       {studio.map(s=>
             <form
               id="myForm"
-              className="form-horizontal col-md-12 "
+              className="form-horizontal col-md-8"
               onSubmit={this.handleSubmit}
             >
-              <fieldset>
+        
+              
                 <MultiSelect
                   options={[
                     "Sunday",
@@ -90,6 +121,7 @@ class Details extends Component {
                   other_id="na"
                   text_id="na_select"
                   required="true"
+                  value={ s.availibility ? Object.values(s.availibility).join(", "): ""}
                 />
 
                 <TextArea
@@ -97,8 +129,9 @@ class Details extends Component {
                   type="textarea"
                   label="Studio Description"
                   placeholder="Enter Studio's Description "
-                  classProp="form-style-1"
+                 classProp={classProp}
                   required="true"
+                  value={s.description}
                 />
 
                 <Input
@@ -106,8 +139,9 @@ class Details extends Component {
                   type="text"
                   label="Capacity"
                   placeholder="Enter Number of People Allowed. Enter 0 if Undecided."
-                  classProp="form-style-1"
+                 classProp={classProp}
                   required="true"
+                  value={s.guest_allowed}
                 />
                
 
@@ -126,6 +160,7 @@ class Details extends Component {
                   other_id="equipment_other"
                   text_id="equipment_select"
                   required="true"
+                  value={s.equipment}
                 />
 
                 <MultiSelect
@@ -144,6 +179,7 @@ class Details extends Component {
                   other_id="amen"
                   text_id="amen_select"
                   required="true"
+                  value={s.services}
                 />
 
                 <MultiSelect
@@ -160,30 +196,43 @@ class Details extends Component {
                   other_id="incl"
                   text_id="incl_select"
                   required="true"
+                  value={s.includes}
                 />
 
+                  <TextArea
+                  name="rules"
+                  type="textarea"
+                  label="Rules"
+                  placeholder="Enter Rules for your Studio"
+                 classProp={classProp}
+                  required="true"
+                  value={s.rules}
+                /> 
+                
                 <hr />
 
                 <div className="form-group">
                   <button className="btn roberto-btn w-100" type="submit">
-                    Save & Continue
+                   {submitText}
                   </button>
                 </div>
-              </fieldset>
+            
             </form>
-
-          
+)}
+           
           </div>
         </div>
       </div>
+      </Col>
+      </Row>
     );
   }
 }
 
-function mapStateToProps({ studiotype, auth }) {
-  return { studiotype, auth };
+function mapStateToProps({ studio, auth }) {
+  return { studio, auth };
 }
 
-export default connect(mapStateToProps, { fetchUser, fetchStudioType })(
+export default connect(mapStateToProps, { fetchUser, fetchSingleStudio })(
   Details
 );

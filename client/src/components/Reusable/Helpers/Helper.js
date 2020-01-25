@@ -1,4 +1,8 @@
 import React from "react";
+
+
+
+
 //function converts standard time to military time and calculates time difference
 export function handleHoursMin(starttime, endtime, justStart=false, justEnd=false) {
   let start = starttime.split(":");

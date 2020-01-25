@@ -8,8 +8,6 @@ const uri = keys.postgresConnectionString;
 const stripe = require("stripe")(keys.STRIPE_API_SECRET);
 const bcrypt = require("bcrypt");
 
-
-
 const Pool = require("pg").Pool;
 const pool = new Pool({
   user: user,
@@ -98,7 +96,7 @@ function getUser(username, password, done) {
 function getUserName(email, signup, username, password, done) {
   return new Promise(resolve => {
     let valid = true;
-    
+
     pool.query(
       `SELECT * FROM users WHERE (username = '${username}' or email= '${email}') and password <> ''`,
       (err, results) => {
@@ -118,7 +116,7 @@ function getUserName(email, signup, username, password, done) {
         } else {
           if (signup) {
             valid = false;
-           
+
             resolve(valid);
           } else {
             done(null, false);
@@ -131,7 +129,6 @@ function getUserName(email, signup, username, password, done) {
 
 const LocalOAuth = async (email, signup, username, password, done) => {
   const user = await getUserName(email, signup, username, password, done);
- 
 
   if (!user) {
     pool.query(
@@ -206,7 +203,7 @@ const postListing = (req, res) => {
 
 const postPayment = async (req, res) => {
   const { studioid, payment, token, email } = req.body;
-  console.log(token)
+  console.log(token);
   let { status } = await stripe.charges.create({
     amount: payment * 100,
     currency: "usd",
@@ -245,12 +242,9 @@ const getStudios = (req, res) => {
   }
 
   let { page, limit, studioType, date, state } = req.query;
-  // console.log(date, state, studioType);
-  // console.log(`Select * from getStudios where _id = _id  
-  // ${getParams(studioType, "studio_type_fk")} ${getParams(state, "state")}  
-  // order by _id  OFFSET ${page} FETCH FIRST ${limit} ROWS ONLY`);
+
   pool.query(
-    `Select * from getStudios where _id = _id  ${getParams(
+    `Select * from getStudios where _id = _id and isactive=true ${getParams(
       studioType,
       "studio_type_fk"
     )} ${getParams(
@@ -261,7 +255,7 @@ const getStudios = (req, res) => {
       if (error) {
         throw error;
       }
-     
+
       res.status(200).json(results.rows);
     }
   );
@@ -281,7 +275,7 @@ const getSingleStudios = (req, res) => {
 
 const getFeatureStudios = (req, res) => {
   pool.query(
-    `SELECT * from getStudios order by review desc, rating desc limit 3`,
+    `SELECT * from getStudios where isactive=true order by review desc, rating desc limit 3`,
     (error, results) => {
       if (error) {
         throw error;
@@ -303,7 +297,6 @@ const getTopStudios = (req, res) => {
   );
 };
 
-
 const getStudiosBooked = (req, res) => {
   pool.query(
     `SELECT * from datebooked where _id = $1`,
@@ -318,9 +311,8 @@ const getStudiosBooked = (req, res) => {
   );
 };
 
-
 const getReviews = (req, res) => {
-  console.log(`Select * from getReviews where studio_fk = ${req.params.id}`)
+  console.log(`Select * from getReviews where studio_fk = ${req.params.id}`);
   pool.query(
     `Select * from getReviews where studio_fk = ${req.params.id}`,
     (error, results) => {
@@ -348,7 +340,16 @@ const putStudioDetails = (req, res) => {
 
   pool.query(
     "Update Studios set description=$2, includes=$3, services=$4,  equipment=$5 , guest_allowed=$6, availibility=$7, rules=$8, isActive=True where _id=$1 ",
-    [studioid, description, include, services, equipment, capacity, dates, rules],
+    [
+      studioid,
+      description,
+      include,
+      services,
+      equipment,
+      capacity,
+      dates,
+      rules
+    ],
     (error, results) => {
       if (error) {
         throw error;
@@ -405,18 +406,11 @@ const putStudioInfo = (req, res) => {
         throw error;
       }
 
-      pool.query(
-        "Select _id from studios where user_fk = $1 and studio_venue=$2 and address1=$3 and studio_name=$4 and studio_type_fk = $5 and main_image=$6",
-        [req.user._id, venue, address1, studioName, studioType, studioImage],
-        (error, results) => {
-          if (error) {
-            throw error;
-          }
           res.status(200).json(results.rows);
         }
       );
-    }
-  );
+    
+  
 };
 
 //Add Images
@@ -439,8 +433,8 @@ const putImages = (req, res) => {
 const postReview = (req, res) => {
   const { review, studioid, rating } = req.body;
   pool.query(
-    "Insert into reviews(review, rating, user_fk, studio_fk) values($1, $2, $3, $4)", 
-    [review, rating, req.user._id, studioid], 
+    "Insert into reviews(review, rating, user_fk, studio_fk) values($1, $2, $3, $4)",
+    [review, rating, req.user._id, studioid],
     (error, results) => {
       if (error) {
         throw error;
@@ -455,7 +449,7 @@ const postReview = (req, res) => {
 const updateUser = (req, res) => {
   const { username, email, social, userid } = req.body;
   pool.query(
-    "Update users set username=$1, email=$2 where _id=$3", 
+    "Update users set username=$1, email=$2 where _id=$3",
     [username, email, req.user._id],
     (error, results) => {
       if (error) {

@@ -107,4 +107,17 @@
 
 .sticky-btn{
     position: sticky;
+    top: 5px;
+    height: 100%;
+}
+
+.edit-btn{
+    width:60px;
+    height:60px;
+    border-radius:50px;
+    font-size:20px;
+    color:#fff;
+    line-height:60px;
+    text-align:center;
+    background:#0e2737
 }

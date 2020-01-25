@@ -48,7 +48,7 @@ class StudioSearch extends Component {
   }
 
   componentDidMount() {
-    this.props.fetchLocation();
+ 
     this.props.fetchStudio(
       0,
       20,

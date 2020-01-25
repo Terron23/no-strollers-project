@@ -14,8 +14,8 @@ import Description from "./sub_components/Description";
 import Equipment from "./sub_components/Equipment";
 import SingleStudioSideFilter from "./sub_components/SingleStudioSideFilter";
 import MobileBook from "./sub_components/SingleStudioMobileFilter";
-import SlideNav from "../../Reusable/SlideNav/SlideNav"
 import Loading from "../../Reusable/Loading/Loading";
+import { Link } from "react-router-dom";
 import "./css/single.css";
 
 const Studios = ({
@@ -35,8 +35,7 @@ const Studios = ({
   studioForm,
   studioType,
   rating, 
-  venue,
-  edit
+  venue
 }) => {
   return (
     <Wrapper>
@@ -49,7 +48,7 @@ const Studios = ({
       <div className="row">
        
         <div className="col-lg-8 col-md-12 col-sm-8">
-        {edit()}
+       
           <Features
             capacity={guest}
             price={price}
@@ -57,7 +56,7 @@ const Studios = ({
             rating={rating}
             venue={venue}
           />
-            {edit()}
+         
           <Description description={description} title={"Description"} />
           <Ameneties services={services} title={"Ameneties"} />
           <Bonus includes={includes} title={"Bonus"} />
@@ -65,7 +64,7 @@ const Studios = ({
           <Description description={rules} title={"Rules"} />
           <Reviews param={param} />
         </div>
-        <div className="col-12 col-lg-4 web-search">
+        <div className="col-12 col-lg-4 web-search sticky-btn">
           <SingleStudioSideFilter id={id} price={price} />
         </div>
         <div className="col-lg-12 col-md-12 col-sm-8 mobile-search">
@@ -117,25 +116,17 @@ class SingleStudio extends Component {
     if(this.props.auth) {
     user_id = this.props.auth._id
 
-    if(user_id === studio_id && editTarget=== 'btn'){
-      return <a  onClick={this.toggleNavigation} className='btn roberto-btn btn-2 sticky-btn'>Edit Your Listing</a>
-    }
-    else if(user_id === studio_id && editTarget !== 'btn'){
-      return <a onClick={this.toggleNavigation}><i className="fa fa-edit"></i></a>
-    }
-  }
-  }
-  toggleNavigation =()=> {
-    if (this.state.showResponsivenavbar) {
-      this.setState({showResponsivenavbar:false});
-    } else {
-      this.setState({showResponsivenavbar:true});
-    }
-  }
 
-  handleHighlight =(component)=>{
- this.setState({highlight:component});
+     if(user_id === studio_id){
+    return <div className="fixed-bottom web-search edit-btn col-1 offset-11" title="Edit your listing">
+     <Link to={`/post-studio/${this.props.match.params.id}`}><i className="fa fa-edit text-light"></i>{editTarget}</Link> 
+    </div>
+    }
   }
+  }
+  
+
+
 
   render() {
     if (!this.props.studio) {
@@ -146,8 +137,8 @@ class SingleStudio extends Component {
     const { setShow , highlight, showResponsivenavbar} = this.state;
     return (
       <div>
-      {this.handleEdits('btn')}
-       
+    
+    {this.handleEdits('')}
         {studio.map(studio => {
           if (this.props.match.params.id == studio._id) {
             return (
@@ -183,15 +174,15 @@ class SingleStudio extends Component {
                   handleShow={this.handleShow}
                   rating={studio.rating}
                   venue={studio.studio_venue}
-                  edit={this.handleEdits}
+                 
                 />
               );
             } else {
               return "";
             }
           })}
-          <SlideNav toggleNavigation={this.toggleNavigation} showResponsivenavbar={showResponsivenavbar} />
         </div>
+      
       </div>
     );
   }

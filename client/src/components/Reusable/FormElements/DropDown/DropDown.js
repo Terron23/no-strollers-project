@@ -7,7 +7,7 @@ const DropDown =({options, label, classProp, value, name, required=false})=> {
         <label htmlFor={label}>{label}</label>
         <select className={`form-control`} name={name} required={required}>
           <option value="">Please Choose</option>
-          {options()}
+          {options}
         </select>
       </div>
     );
