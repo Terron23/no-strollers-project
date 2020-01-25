@@ -241,7 +241,7 @@ const getStudios = (req, res) => {
     return !param ? `and ${val} = ${val}` : `and ${val} = '${param}'`;
   }
 
-  let { page=0, limit=20, studioType, date, state } = req.query;
+  let { page=0, limit=20, studioType, date, state, active } = req.query;
 
   pool.query(
     `Select * from getStudios where _id = _id and isactive=true ${getParams(

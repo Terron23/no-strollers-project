@@ -17,6 +17,14 @@
     
 }
 
+.side-nav-link{
+    color: white;
+}
+.side-nav-link:hover{
+    color: #45D6D6;
+}
+
+
 .active i{
    color: #45D6D6;
 }

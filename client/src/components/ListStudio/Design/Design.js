@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchUser } from "../.././../actions";
+import { fetchUser, fetchSingleStudio } from "../.././../actions";
 import Title from "./../../assets/Title";
 import StudioDropZone from "./sub_components/Dropzone"
 import FormNav from "../FormNavigation/SideNav";
@@ -31,7 +31,7 @@ class Design extends Component {
 
   componentDidMount() {
     this.props.fetchUser();
- 
+    this.props.fetchSingleStudio(this.props.match.params.id || null)
   }
 
 
@@ -43,7 +43,11 @@ render() {
     const {studioname, studioid } = this.state;
     return (
       <Row>
-        <Col xs={3}><FormNav active2="active"/></Col>
+        <Col xs={3}><FormNav active2="active" 
+        link2={`/design/"ghgfgghjjjhgg"/${studioid}`} 
+        disabled={this.props.studio ? false: true}
+        id={studioid || ""}/>
+        </Col>
         <Col>
       <Wrapper>
 <StudioDropZone 
@@ -64,5 +68,5 @@ function mapStateToProps({ studio, auth }) {
 
 export default connect(
   mapStateToProps,
-  { fetchUser }
+  { fetchUser , fetchSingleStudio}
 )(Design);

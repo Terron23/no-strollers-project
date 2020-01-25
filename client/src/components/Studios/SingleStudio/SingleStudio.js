@@ -119,7 +119,9 @@ class SingleStudio extends Component {
 
      if(user_id === studio_id){
     return <div className="fixed-bottom web-search edit-btn col-1 offset-11" title="Edit your listing">
-     <Link to={`/post-studio/${this.props.match.params.id}`}><i className="fa fa-edit text-light"></i>{editTarget}</Link> 
+     <Link to={`/post-studio/${this.props.match.params.id}`}>
+       <i className="fa fa-edit text-light"></i>{editTarget}
+       </Link> 
     </div>
     }
   }

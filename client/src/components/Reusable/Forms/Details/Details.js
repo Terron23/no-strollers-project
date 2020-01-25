@@ -98,9 +98,10 @@ class Details extends Component {
           <div className="row">
        {studio.map(s=>
             <form
-              id="myForm"
+              id="detail_form"
               className="form-horizontal col-md-8"
               onSubmit={this.handleSubmit}
+              ref="detail_form"
             >
         
               

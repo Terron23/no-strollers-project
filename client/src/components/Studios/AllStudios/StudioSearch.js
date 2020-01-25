@@ -62,8 +62,7 @@ class StudioSearch extends Component {
     window.addEventListener("load", this.featureType);
   }
 
-  featureType = (event) => {
-  console.log(event)
+  featureType = () => {
     let days = [
       "Sunday",
       "Monday",

@@ -13,7 +13,10 @@ class Details extends Component {
         studioName={this.props.match.params.studioName}
       >
         <Col xs={3}>
-          <FormNav active3="active" />
+          <FormNav active3="active" 
+          disabled={this.props.match.params.id ? false : true}
+          id={this.props.match.params.id || ""}
+          />
         </Col>
       </Detail>
     );

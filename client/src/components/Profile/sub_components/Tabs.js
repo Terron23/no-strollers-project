@@ -25,7 +25,7 @@ class Tabs extends Component {
           </Col>
           <Col sm={10}>
             <Tab.Content>
-              <Tab.Pane eventKey="#link1">{showStudioForm}</Tab.Pane>
+              <Tab.Pane eventKey="#link1"><Row>{showStudioForm}</Row></Tab.Pane>
               <Tab.Pane eventKey="#link2">{showProfile}</Tab.Pane>
               <Tab.Pane eventKey="#link3">{showBookings}</Tab.Pane>
               <Tab.Pane eventKey="#link4">{showUploads}</Tab.Pane>

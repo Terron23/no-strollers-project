@@ -10,7 +10,10 @@ render() {
     return (
       <Row>
         <Col xs={3}>
-          <FormNav active1="active"/>
+          <FormNav active1="active" 
+          disabled={this.props.match.params.id ? false : true}
+          id={this.props.match.params.id || ""}
+          />
         </Col>
         <Col>
           <ListStudioForm
@@ -21,8 +24,8 @@ render() {
             handleFiles={this.handleFiles}
             classProp="form-style-1"
             showTitle={false}
-           studioid={this.props.match.params.id}
-           studioName={this.props.match.params.studioName || ""}
+            studioid={this.props.match.params.id}
+            studioName={this.props.match.params.studioName || ""}
           />
         </Col>
       </Row>

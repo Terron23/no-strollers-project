@@ -8,6 +8,8 @@ import Input from '../Reusable/FormElements/Input/Input'
 import AlertMessage from '../Reusable/Alert/Alert'
 import {Accordion, Button, Card, Table} from "react-bootstrap"
 import Loading from '../Reusable/Loading/Loading'
+import {Link} from "react-router-dom"
+import {Row, Col, Container, Badge} from 'react-bootstrap'
 import "./css/profile.css";
 
 class Profile extends Component {
@@ -34,30 +36,20 @@ class Profile extends Component {
     return this.props.studio.map((studio, i) => {
       if (studio.user_fk == this.props.auth._id) {
         return (
-      
-<div className="col-md-4 studio-card" style={{border: "1px lightgray solid", padding:"20px"}}>
-        <p>{studio.studio_name}</p>
+  
+<Col lg={4} className="studio-card" style={{border: "1px lightgray solid", padding:"20px"}}>
+      <h5>{studio.studio_name} {!studio.isactive ? <Badge variant="danger">!</Badge> :""}</h5>
+        <hr />
+<Row>
+  <Col>
+        <Link to={`/post-studio/${studio._id}`}>Edit </Link> 
+          </Col>
           
-    </div>
-          // <ListStudioForm
-          //   contactVal={studio.contact_name}
-          //   phoneVal={studio.contact_phone}
-          //   venueVal={studio.studio_venue}
-          //   ad1Val={studio.address1}
-          //   ad2Val={studio.address2}
-          //   postalVal={studio.postal_code}
-          //   regionVal={studio.state}
-          //   cityVal={studio.city}
-          //   emailVal={studio.contact_email}
-          //   studioNameVal={studio.studio_name}
-          //   priceVal={studio.studio_price}
-          //   search={studio.studio_type_fk}
-          //   idVal={studio._id}
-          //   buttonText="Edit & Save"
-          //   title={`Edit ${studio.studio_name}`}
-          //   showTitle={false}
-          //   handleSubmit={e => this.handleSubmit(e, "studios")}
-          // />
+          <Col><Link to={`/single-studio/${studio._id}`}>View</Link> </Col> 
+          <Col> <Link to={'/'}>Deactivate</Link></Col> 
+   </Row>
+    </Col>
+
        
         );
       }
