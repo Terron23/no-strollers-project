@@ -244,7 +244,7 @@ const getStudios = (req, res) => {
   let { page=0, limit=20, studioType, date, state } = req.query;
 
   pool.query(
-    `Select * from getStudios where _id = _id ${getParams(
+    `Select * from getStudios where _id = _id isactive=true ${getParams(
       studioType,
       "studio_type_fk"
     )} ${getParams(
