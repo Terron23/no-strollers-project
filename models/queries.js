@@ -241,7 +241,7 @@ const getStudios = (req, res) => {
     return !param ? `and ${val} = ${val}` : `and ${val} = '${param}'`;
   }
 
-  let { page=0, limit=20, studioType, date, state, active } = req.query;
+  let { page = 0, limit = 20, studioType, date, state, active } = req.query;
 
   pool.query(
     `Select * from getStudios where _id = _id and isactive=true ${getParams(
@@ -406,11 +406,9 @@ const putStudioInfo = (req, res) => {
         throw error;
       }
 
-          res.status(200).json(results.rows);
-        }
-      );
-    
-  
+      res.status(200).json(results.rows);
+    }
+  );
 };
 
 //Add Images
@@ -449,13 +447,42 @@ const postReview = (req, res) => {
 const updateUser = (req, res) => {
   const { username, email, social, userid } = req.body;
   pool.query(
-    "Update users set username=$1, email=$2 where _id=$3",
-    [username, email, req.user._id],
+    "Select username from users where username= $1 or email=$2",
+    [username, email],
     (error, results) => {
       if (error) {
-        throw error;
+        res.status(500).json("Something Went Wrong!");
+      } else if (results.rows.length > 0) {
+        res.status(401).json("User Name or Email already exists");
+      } else {
+        pool.query(
+          "Update users set username=$1, email=$2 where _id=$3",
+          [username, email, req.user._id],
+          (error, results) => {
+            if (error) {
+              throw error;
+            }
+            res.status(200).json("User Info Updated Successfully");
+          }
+        );
       }
-      res.status(200).json("User Info Updated");
+    }
+  );
+};
+
+const updateUserImage = (req, res) => {
+  const { image } = req.body;
+  pool.query(
+    "Update users set user_image=$1 where _id=$2",
+    [image, req.user._id],
+    (error, results) => {
+      if (error) {
+        res.status(204).json("Something went wrong!");
+        
+      }
+      else{
+      res.status(200).json("User Info Updated Successfully");
+      }
     }
   );
 };
@@ -496,6 +523,7 @@ module.exports = {
   putStudioDetails,
   putStudioInfo,
   putRemoveImages,
-  updateUser
+  updateUser,
+  updateUserImage,
   //delete
 };

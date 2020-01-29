@@ -53,4 +53,5 @@ module.exports = app => {
   app.put("/api/v2/post-details", db.putStudioDetails);
   app.put("/api/v2/put-studio-info", db.putStudioInfo);
   app.put("/api/v2/update-user", db.updateUser);
+  app.put("/api/v2/update-user-image", db.updateUserImage);
 };
