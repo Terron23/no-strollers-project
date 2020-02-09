@@ -9,15 +9,10 @@ import music from "./images/08.jpg";
 import yoga from "./images/03.jpg";
 import Heading from "./sub_components/heading";
 import { Link } from "react-router-dom";
+import ViewAll from './sub_components/ViewAll'
 import "./css/testimonial.css";
 
-const ViewAll =()=>(  
- 
-    <div className="text-center col-md-12" style={{paddingTop: 30}}>
-    <Link to={`/search-studio/`} className="btn roberto-btn btn-1">
-    View All Studios <i className="fa fa-long-arrow-right" aria-hidden="true"></i>
-    </Link>
-    </div>)
+
 
 const StudioType = ({
   img,

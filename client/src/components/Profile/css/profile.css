@@ -27,3 +27,13 @@
 .studio-card a{
 color: blue;
 }
+
+
+.tab-link a{
+  font-size: 20px;
+
+}
+
+.tab-border{
+  border: solid 4px #0e2737;
+}

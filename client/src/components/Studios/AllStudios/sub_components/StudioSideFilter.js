@@ -22,8 +22,8 @@ class StudioSideFilter extends Component {
     } = this.props;
   
     return (
-      <div className={`col-12 col-lg-4 ${hide}`}>
-        <div className={`hotel-reservation--area mb-100`}>
+      <div className={`col-12 col-lg-4 ${hide} web-sticky`}>
+        <div className={`hotel-reservation--area mb-100 `}>
           <form onSubmit={submit}>
             <FormAttr label="Location">
               <input

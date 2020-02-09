@@ -42,11 +42,12 @@ class Home extends Component {
           history={history}
           handleSubmit={this.handleSubmit}/>
          <FeaturedStudios featStudios={featStudios}/> 
-         <StudioCards />
-         <City />
          <Venue />
+        
+         <City />
+         {/* <StudioCards /> */}
          <StudioTypes />
-        {/* <StudioType /> */}
+       
         <About />
         <PostStudio />
       </div>

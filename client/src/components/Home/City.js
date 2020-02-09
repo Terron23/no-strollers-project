@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Heading from "./sub_components/heading";
-import ViewAll from "../Reusable/ViewAllButton/ViewAll"
+import ViewAll from './sub_components/ViewAll';
 import { Link } from "react-router-dom";
 import './css/city.css';
 
@@ -51,6 +51,7 @@ export default class City extends Component {
           </div>
         
         </div>
+        <ViewAll />
       </section>
     );
   }

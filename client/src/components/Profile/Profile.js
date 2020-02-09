@@ -48,7 +48,7 @@ class Profile extends Component {
             <hr />
             <Row>
               <Col>
-                <Link to={`/post-studio/${studio._id}`}>Edit </Link>
+                <Link to={`/post-studio/${studio.studio_name}/${studio._id}`}>Edit </Link>
               </Col>
 
               <Col>
@@ -293,56 +293,47 @@ class Profile extends Component {
       return <h3 className="text-center">No Studios Reserved!</h3>;
     }
     return (
-      <Table striped bordered hover size="sm">
-        <tr>
-          <th>Studio Name</th>
-          <th>Date Reserved</th>
-          <th>Payment</th>
-          <th>Book Again</th>
-          <th>Review</th>
-        </tr>
-        {this.props.booked.map(book => {
-          return (
-            <tr>
-              <td>{book.studio_name}</td>
-              <td>{book.time_stamp}</td>
-              <td>{book.payment}</td>
-              <td>
-                {
-                  <a
-                    href={`/single-studio/${book.studio_id}`}
-                    className="btn roberto-btn w-100"
-                  >
-                    Book
-                  </a>
-                }
-              </td>
-              <td>
+      booked.map(book => {
+    
+       return( <Col lg={4} 
+     className="studio-card"
+     style={{ border: "1px lightgray solid", padding: "20px" }}>
+       <h5>{book.studio_name}</h5>
+       <ul>
+       <li>Payment: {book.payment}</li>
+         <li>Time Stamp: {book.time_stamp}</li> 
+       </ul>
+       <hr />
+       <Link to={`/single-studio/${book.studio_id}`}>
+                    Book Again</Link>
+                    <hr />
                 <form onSubmit={e => this.handleSubmit(e, "review")}>
+                  <label>Review</label>
                   <input
                     placeholder="Add Review"
                     name="review"
                     type="text"
                     label="Review"
                     defaultValue=""
+                    className="form-control"
                   />
+                   <label>Rating</label>
                   <input
                     name="rating"
                     type="number"
                     placeholder="Add Rating"
                     defaultValue=""
+                    className="form-control"
                   />
-                  <input name="studioid" type="text" value={book.studio_id} />
+                  <input name="studioid" type="hidden" value={book.studio_id} />
+                  <br />
                   <button type="submit" className="btn roberto-btn w-100">
-                    Update/Edit User Info
+                   Submit Rating & Review
                   </button>
                 </form>
-              </td>
-            </tr>
-          );
-        })}
-      </Table>
-    );
+     </Col>)
+      })
+    )
   };
 
   render() {

@@ -9,10 +9,12 @@ class ListStudio extends Component {
 render() {
     return (
       <Row>
+  
         <Col xs={3}>
           <FormNav active1="active" 
           disabled={this.props.match.params.id ? false : true}
           id={this.props.match.params.id || ""}
+          studioName={this.props.match.params.studioName || ""}
           />
         </Col>
         <Col>

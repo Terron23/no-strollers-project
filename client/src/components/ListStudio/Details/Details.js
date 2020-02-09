@@ -16,6 +16,7 @@ class Details extends Component {
           <FormNav active3="active" 
           disabled={this.props.match.params.id ? false : true}
           id={this.props.match.params.id || ""}
+          studioName={this.props.match.params.studioName || ""}
           />
         </Col>
       </Detail>

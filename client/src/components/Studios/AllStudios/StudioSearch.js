@@ -7,6 +7,7 @@ import StudioSideFilter from "./sub_components/StudioSideFilter";
 import StudioMobileFilter from "./sub_components/StudioMobileFilter";
 import Loading from "../../Reusable/Loading/Loading";
 import Infinite from "../../Reusable/InfiniteScroll/Infinite";
+import {Row} from 'react-bootstrap';
 import "./css/studio.css";
 
 class StudioSearch extends Component {
@@ -266,6 +267,7 @@ class StudioSearch extends Component {
                 </Infinite>
               </div>
               {document.documentElement.clientWidth >= 1000 ? (
+              
                 <StudioSideFilter
                   location={location}
                   submit={this.handleAvailibility}
@@ -281,6 +283,7 @@ class StudioSearch extends Component {
                   clearCal={this.clearCal}
                   
                 />
+              
               ) : (
                 ""
               )}

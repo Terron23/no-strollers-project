@@ -8,17 +8,10 @@ import music from "./images/08.jpg";
 import yoga from "./images/03.jpg";
 import HoverEffect from '../Reusable/HoverEffect/Hover'
 import { Link } from "react-router-dom";
+import ViewAll from './sub_components/ViewAll'
 import './css/studiotype.css';
 
 
-const ViewAll =()=>(  
-<div className="row">
-<div className="text-center col-md-12 sh-view-all">
-<Link to={`/search-studio/`} className="btn  text-center ">
-<p >View All <i className="fa fa-long-arrow-right" aria-hidden="true"></i></p> 
-</Link>
-</div>
-</div>)
 
 const Studios =({studioTypeName, img, link})=>(<div className="col-md-4 col-lg-4 col-sm-12 type-img " >
 <HoverEffect link={link}>
@@ -57,11 +50,11 @@ export default class StudioType extends Component {
     <Studios studioTypeName="Photography" img={photo} link="/search-studio/19"/> 
     <Studios studioTypeName="Art" img={art} link="/search-studio/21"/>
         </div>
-      <ViewAll />
-        </div>
     
         </div>
-
+       
+        </div>
+        <ViewAll />
    
       </section>
     );

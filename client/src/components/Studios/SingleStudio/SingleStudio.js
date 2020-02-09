@@ -112,6 +112,7 @@ class SingleStudio extends Component {
 
   handleEdits =(editTarget)=>{
     let studio_id = this.props.studio.map(s=>s.user_fk).pop();
+    let studio_name = this.props.studio.map(s=>s.studio_name).pop();
     let user_id =""
     if(this.props.auth) {
     user_id = this.props.auth._id
@@ -119,7 +120,7 @@ class SingleStudio extends Component {
 
      if(user_id === studio_id){
     return <div className="fixed-bottom web-search edit-btn col-1 offset-11" title="Edit your listing">
-     <Link to={`/post-studio/${this.props.match.params.id}`}>
+     <Link to={`/post-studio/${studio_name}/${this.props.match.params.id}`}>
        <i className="fa fa-edit text-light"></i>{editTarget}
        </Link> 
     </div>

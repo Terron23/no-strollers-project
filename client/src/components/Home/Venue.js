@@ -23,7 +23,8 @@ const VenueType = ({ img, description, link = "/", bg }) => {
 
 export default () => {
   return (
-    <section className="container mb-50 roberto-service-area">
+    <section className="container roberto-service-area" 
+    style={{marginTop:"100px", marginBottom: "100px"}}>
         <div className="row text-center">
       <VenueType img="fa fa-home" description="Home Studios" bg="homeBg"/>
       <VenueType img="fa fa-building-o" description="Bussiness Studios" />

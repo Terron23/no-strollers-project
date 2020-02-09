@@ -46,7 +46,7 @@ class App extends Component {
           <Route path="/sign-up" component={SignUp} />
 
           <Route path="/log-in" component={Login} />
-          <Route path="/post-studio/:id?" component={ListStudio} />
+          {/* <Route path="/post-studio/:id?" component={ListStudio} /> */}
           <Route
             path="/search-studio/:search?/:location?/:startdate?"
             component={StudioSearch}
@@ -61,7 +61,7 @@ class App extends Component {
           />
           <Route path="/design/:studioName?/:id?" component={Design} />
           <Route path="/details/:studioName?/:id?" component={Details} />
-          <Route path="/post-studio/:studioname/:id" component={ListStudio} />
+          <Route path="/post-studio/:studioName?/:id?" component={ListStudio} />
           <Route path="/confirmation" component={Confirmation} />
           <Route path="/faqs" component={Faq} />
           <Footer />

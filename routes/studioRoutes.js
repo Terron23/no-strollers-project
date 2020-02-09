@@ -5,8 +5,11 @@ const db = require("../models/queries");
 const request = require('superagent');
 const keys = require('../config/keys');
 const email_subscribe = keys.EMAIL_SUBSCRIBE;
+ 
 
 module.exports = app => {
+
+
   app.get("/api/v2/logout", (req, res) => {
     req.logout();
     res.redirect("/");
@@ -15,6 +18,8 @@ module.exports = app => {
   app.get("/api/v2/current_user", (req, res) => {
     res.send(req.user);
   });
+
+
 
   app.get("/api/v2/studio-listing", db.getStudios);
   app.get("/api/v2/studio-type", db.getStudioType);

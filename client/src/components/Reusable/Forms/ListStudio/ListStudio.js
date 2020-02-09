@@ -90,7 +90,6 @@ class ListStudioForm extends Component {
  
   handleSubmit = event => {
     event.preventDefault();
-alert("test")
     let name = event.target.name.value;
     let address1 = event.target.address1.value;
     let address2 = event.target.address2.value;

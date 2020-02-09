@@ -3,6 +3,7 @@ import Heading from "./sub_components/heading";
 import { Link } from "react-router-dom";
 import HoverEffect from '../Reusable/HoverEffect/Hover';
 import {handleRating} from '../Reusable/Helpers/Helper';
+import ViewAll from './sub_components/ViewAll'
 import './css/feature.css';
 
 
@@ -77,6 +78,7 @@ class FeaturedStudios extends Component {
      <div className="row ">
           
             {this.showStudio()}
+            <ViewAll />
          </div>
          </div>
       </section>

@@ -43,10 +43,12 @@ render() {
     const {studioname, studioid } = this.state;
     return (
       <Row>
-        <Col xs={3}><FormNav active2="active" 
-        link2={`/design/"ghgfgghjjjhgg"/${studioid}`} 
+        <Col xs={3}>
+          <FormNav active2="active" 
         disabled={this.props.studio ? false: true}
-        id={studioid || ""}/>
+        id={studioid || ""}
+        studioName={studioname}
+        />
         </Col>
         <Col>
       <Wrapper>
