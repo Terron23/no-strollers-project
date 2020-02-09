@@ -19,7 +19,7 @@ class FileUpload extends Component {
       bucketName: process.env.REACT_APP_PLACE,
       dirName: `Images/${this.props.id}/User_Image` /* optional */,
       region:process.env.REACT_APP_DESTINATION,
-      accessKeyId: REACT_APP_ACCESS_GOOGLE_ID,
+      accessKeyId: process.env.REACT_APP_ACCESS_GOOGLE_ID,
       secretAccessKey: process.env.REACT_APP_SECRET_ID
     };
 
