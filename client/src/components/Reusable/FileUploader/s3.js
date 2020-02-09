@@ -16,11 +16,11 @@ class FileUpload extends Component {
   handleUploads = e => {
     e.preventDefault();
     const config = {
-      bucketName: process.env.REACT_APP_bucket,
+      bucketName: process.env.REACT_APP_PLACE,
       dirName: `Images/${this.props.id}/User_Image` /* optional */,
-      region:process.env.REACT_APP_region,
-      accessKeyId: process.env.REACT_APP_accessKeyId,
-      secretAccessKey: process.env.REACT_APP_secretAccessKey
+      region:process.env.REACT_APP_DESTINATION,
+      accessKeyId: REACT_APP_ACCESS_GOOGLE_ID,
+      secretAccessKey: process.env.REACT_APP_SECRET_ID
     };
 
     const ReactS3Client = new S3(config);
