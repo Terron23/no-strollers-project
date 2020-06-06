@@ -15,5 +15,6 @@ module.exports = {
   postgresPassword:process.env.postgresPassword,
   postgresPort: process.env.postgresPort,
   postgresConnectionString: process.env.postgresConnectionString,
+  EMAIL_SUBSCRIBE: process.env.EMAIL_SUBSCRIBE,
   ssl: true,
 };

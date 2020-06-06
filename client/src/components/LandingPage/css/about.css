@@ -1,0 +1,20 @@
+.phone-text{
+    color:#1cc3b2;
+    font-weight: 500;
+  }
+  .about-content {
+    position: relative;
+    z-index: 1; }
+  
+  .about-us-content {
+    position: relative;
+    z-index: 1; }
+    .about-us-content h5 {
+      line-height: 1.8;
+      color: #636a76;
+      margin-bottom: 30px;
+      font-weight: 400; }
+    .about-us-content p {
+      margin-bottom: 30px; }
+      .about-us-content p span {
+        color: #1cc3b2; }

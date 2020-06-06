@@ -1,0 +1,82 @@
+.roberto-project-area {
+  margin-top: 10px;
+  background-color: "#0e2737" !important;
+}
+/* :: 11.0 Project Area CSS */
+.sh-studio-type-slide {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  overflow: hidden;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+@media only screen and (max-width: 767px) {
+  .sh-studio-type-slide {
+    height: 100%;
+  }
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .sh-studio-type-slide {
+    height: 100%;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .sh-studio-type-slide {
+    height: 100%;
+  }
+}
+
+.sh-studio-type-slide .project-content .text h6 {
+  color: #ffffff;
+}
+.sh-studio-type-slide .project-content .text h5 {
+  color: #ffffff;
+  margin-bottom: 0;
+}
+
+.studio-hunt-hover-effects {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0.5);
+  z-index: 100;
+}
+
+.sh-view-all p {
+  padding: 20px;
+  color: white;
+  font-size: 20px;
+  transition: color 0.5s ease;
+}
+
+.sh-view-all p:hover {
+  color: #1cc3b2;
+}
+.sh-studio-type-slide .hover-effects .text h4 {
+  color: #ffffff;
+}
+
+.type-img {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.studiohunt-type-img {
+  width: 100% !important;
+  height: 398px !important;
+}
+
+.carousel-caption {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.carousel-caption > h3 {
+  color: white !important;
+  transition: color 0.5s ease;
+}
+
+.carousel-caption > h3:hover {
+  color: #1cc3b2 !important;
+}

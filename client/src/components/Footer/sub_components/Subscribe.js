@@ -23,10 +23,7 @@ handleSubmitEmail =(e)=>{
 
     }
     render(){
-        // e670080209400d0a1824fed57f9151a7-us4
-        // curl --request GET \
-        // --url 'https://us4.api.mailchimp.com/3.0/' \
-        // --user 'anystring:e670080209400d0a1824fed57f9151a7-us4'
+   
 
         return(
 

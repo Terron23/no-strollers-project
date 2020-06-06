@@ -1,0 +1,33 @@
+
+.venue-card{
+    width: 60%;
+ 
+}
+.venue-card a h5 i{
+font-size: 30px;
+    color:#1cc3b2;
+
+}
+
+
+
+
+/* .venue-card{
+    position: relative;
+    z-index:1;
+    overflow:hidden;
+}
+.venue-card:before{
+    z-index:-1;
+    position:absolute;
+    width:100px;
+    height:100px;
+    left:0;
+    top:0;
+    content: url('../images/color.jpg');
+    opacity:0.2;
+    -webkit-transition: opacity 1s linear;
+    -o-transition: opacity 1s linear;
+    -moz-transition: opacity 1s linear;
+    transition: opacity 1s linear;
+} */
