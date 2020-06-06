@@ -40,7 +40,7 @@ if(this.props.auth){
 <NavLink key="userprofile" href="/userprofile"><i className="fa fa-user"></i>
 {this.props.auth.username?this.props.auth.username: this.props.auth.contact_name+"'s Account"}
 </NavLink>
-<NavLink key="logout" href="/api/logout">Logout</NavLink>
+<Nav.Link key="logout" href="/api/logout">Logout</Nav.Link>
 </Nav>
 
 }
