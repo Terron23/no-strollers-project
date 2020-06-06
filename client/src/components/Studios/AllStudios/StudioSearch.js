@@ -7,7 +7,7 @@ import StudioSideFilter from "./sub_components/StudioSideFilter";
 import StudioMobileFilter from "./sub_components/StudioMobileFilter";
 import Loading from "../../Reusable/Loading/Loading";
 import Infinite from "../../Reusable/InfiniteScroll/Infinite";
-import {Row} from 'react-bootstrap';
+import { Row } from "react-bootstrap";
 import "./css/studio.css";
 
 class StudioSearch extends Component {
@@ -25,8 +25,8 @@ class StudioSearch extends Component {
       state: "",
       location:
         this.props.match.params.location === "All"
-          ? ''
-          : this.props.match.params.location || '',
+          ? ""
+          : this.props.match.params.location || "",
       reveal: false,
       filterArr: "",
       longLat: [],
@@ -42,25 +42,21 @@ class StudioSearch extends Component {
       startTime: "",
       setShow: false,
       search: [],
-      items: Array.from({ length: 20 }),
+      items: Array.from({ length: 2 }),
       hasMore: true,
       counter: 0
     };
   }
 
   componentDidMount() {
- 
     this.props.fetchStudio(
       0,
-      20,
-      this.handleParam(
-        this.state.studioType,
-        "",
-        this.state.location
-      )
+      2,
+      this.handleParam(this.state.studioType, "", this.state.location)
     );
-    this.featureType();
-    window.addEventListener("load", this.featureType);
+    let search = this.featureType()
+this.setState({search})
+
   }
 
   featureType = () => {
@@ -73,7 +69,7 @@ class StudioSearch extends Component {
       "Friday",
       "Saturday"
     ];
-    let error = "Could Not Find Any Listings.";
+    let error = "";
     let arr = [];
     let search = this.props.studio;
     let filterArr = search
@@ -117,12 +113,11 @@ class StudioSearch extends Component {
         );
       });
 
-    if (arr.length < 1) {
-      return arr.push(error);
-    } else {
-      arr = arr.filter(e => e != error);
-      this.setState({ search: this.state.search.concat(arr) });
-    }
+   
+      let arrMain = this.state.search
+      return  [...new Set(arrMain.concat(arr))]
+     ;
+    
   };
 
   handleParam = (studiotype, date, state) => {
@@ -139,11 +134,15 @@ class StudioSearch extends Component {
     let startDate = e.target.startDate.value;
     const getData = await this.props.fetchStudio(
       0,
-      20,
+      2,
       this.handleParam(studioType, startDate, location)
     );
-    this.setState({ location, studioType, startDate, search: [] });
-    this.featureType();
+    this.setState({ location, studioType, startDate,
+      items:Array.from({ length: 2 }), counter:0 , search:[], hasMore: true});
+
+     
+   this.featureType()
+ 
     this.handleClose(e);
   };
 
@@ -196,24 +195,25 @@ class StudioSearch extends Component {
   };
 
   fetchMoreData = async () => {
-    if (this.state.items.length > 5) {
+    if (this.state.items.length >= 6) {
       this.setState({ hasMore: false });
-      return;
     }
-    let { studioType, location, startDate } = this.state;
-    let counter = this.state.counter + 20;
-    this.setState({ counter });
-   
+    else{
+    let { studioType, location, startDate, search } = this.state;
+    let counter = this.state.counter + 2;
+    this.setState({ counter, search: this.featureType() });
     const getData = await this.props.fetchStudio(
       counter,
-      20,
+      2,
       this.handleParam(studioType, startDate, location)
     );
-    this.featureType();
-
+    
+      this.featureType()
+     
     this.setState({
-      items: this.state.items.concat(Array.from({ length: 20 }))
+      items: this.state.items.concat(Array.from({ length: 2 }))
     });
+  }
   };
 
   render() {
@@ -258,16 +258,16 @@ class StudioSearch extends Component {
           <div className="container">
             <div className="row">
               <div className={`col-12 col-lg-8`}>
-                <Infinite
+               
+              <Infinite
                   fetchMoreData={this.fetchMoreData}
-                  hasMore={hasMore}
-                  items={items}
+                  hasMore={this.state.hasMore}
+                  items={this.state.items}
                 >
-                  {items.map((i, index) => search[index])}
-                </Infinite>
+                  {this.state.items.map((i, index) => this.featureType()[index])}
+                </Infinite> 
               </div>
               {document.documentElement.clientWidth >= 1000 ? (
-              
                 <StudioSideFilter
                   location={location}
                   submit={this.handleAvailibility}
@@ -281,9 +281,7 @@ class StudioSearch extends Component {
                   revealCal={reveal}
                   hide="web-search"
                   clearCal={this.clearCal}
-                  
                 />
-              
               ) : (
                 ""
               )}

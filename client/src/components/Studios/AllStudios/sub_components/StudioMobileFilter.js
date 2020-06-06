@@ -13,7 +13,7 @@ class StudioMobileFilter extends Component {
     let {  children,  handleClose, handleShow, setShow} = this.props;
     return (
      <center> 
-      <div className="col-12 fixed-bottom" 
+      <div className="col-12" 
       style={{backgroundColor: "#0e2737", padding:"20px"}} >
        <Modal show={setShow} onHide={handleClose} 
        dialogClassName="modal-full modal-content"

@@ -38,7 +38,7 @@ export default class City extends Component {
         <div className="container">
           <Heading
             title={"Stay Local"}
-            subtitle="Find & Book Studios Close To You"
+            subtitle="Find & Book Studios Near You"
           />
 
           <div className="row">

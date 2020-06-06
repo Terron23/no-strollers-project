@@ -7,6 +7,10 @@ import './css/nav.css'
 import logo from './images/logo/sh_logo.png';
 
 
+const NavLink =({children, key, href, extraClass})=> 
+<Link to={href} data-rb-event-key={href} className={`nav-link ${extraClass}`}>
+ {children}</Link>
+
 class NavBar extends Component {
   constructor(props) {
     super(props);
@@ -20,34 +24,49 @@ class NavBar extends Component {
     };
   }
 
+handleNavValues =()=>{
+let navLinkLogIn;
+let navCallToAction =       
+<NavLink extraClass="navFade"  href="/search-studio">      
+Book Now{" "}
+<i className="fa fa-long-arrow-right" aria-hidden="true"></i>
+</NavLink >
 
+if(this.props.auth){
+ navLinkLogIn = 
+<Nav className="ml-auto">
+<NavLink key="post-studio" href="/post-studio"><i className="fa fa-plus"></i> Add Your Studio
+</NavLink>
+<NavLink key="userprofile" href="/userprofile"><i className="fa fa-user"></i>
+{this.props.auth.username?this.props.auth.username: this.props.auth.contact_name+"'s Account"}
+</NavLink>
+<NavLink key="logout" href="/api/logout">Logout</NavLink>
+</Nav>
+
+}
+
+else{
+  navLinkLogIn = <Nav className="ml-auto"><NavLink key="post-studio" href="/post-studio">
+  <i className="fa fa-plus"></i>Add Your Studio
+</NavLink>,
+<NavLink key="sign-up" href="/log-in">Sign Up/Login</NavLink></Nav>
+}
+
+
+return [navLinkLogIn, navCallToAction]
+
+ }
   
   renderContent() {
     switch (this.props.auth) {
       case null:
         return;
       case false:
-        return [
-          <Nav.Link key="post-studio" href="/post-studio">
-            <i className="fa fa-plus"></i>Add Your Studio
-          </Nav.Link>,
-          <Nav.Link key="sign-up" href="/log-in">Sign Up/Login</Nav.Link>
-        ].map((value, i) => {
+        return this,this.handleNavValues().map((value, i) => {
           return value;
         });
       default:
-        return [
-          <Nav.Link key="post-studio" href="/post-studio">
-            <i className="fa fa-plus"></i> Add Your Studio
-          </Nav.Link>,
-
-        <Nav.Link key="userprofile" href="/userprofile">
-        <i className="fa fa-user"></i>
-         {this.props.auth.username?this.props.auth.username: this.props.auth.contact_name+"'s Account"}
-          </Nav.Link>,
-
-          <Nav.Link key="logout" href="/api/logout">Logout</Nav.Link>
-        ].map((value, i) => {
+        return this.handleNavValues().map((value, i) => {
           return value;
         });
     }
@@ -74,19 +93,15 @@ toggleNavigation =()=> {
             className="studio-nav"
           >
             <Navbar.Brand className="mr-auto">
-              <a href="/"><img src={logo} width="80px" /></a>Beta
+              <Link to="/"><img src={logo} width="80px" /></Link>Beta
             </Navbar.Brand>
         
             <Navbar.Collapse id="basic-navbar-nav" className="web-nav">
-              <Nav className="ml-auto">{this.renderContent()}</Nav>
-              {/* <Nav.Link>
+            {this.renderContent()}
+              {/* <NavLink>
                 <i className="fa fa-search" onClick={revealSearch}></i>
-              </Nav.Link> */}
-              <Nav.Link className="navFade"  href="/search-studio">
-               
-                  Book Now{" "}
-                  <i className="fa fa-long-arrow-right" aria-hidden="true"></i>
-                </Nav.Link >
+              </NavLink> */}
+             
               
             </Navbar.Collapse>
 

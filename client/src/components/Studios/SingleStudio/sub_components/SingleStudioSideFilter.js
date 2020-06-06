@@ -22,7 +22,8 @@ const StudioTemplate = ({
   calError,
   timeOutErr,
   price,
-  total
+  total,
+  submitBtn
 }) => {
   let arr = [0];
   return (
@@ -94,7 +95,7 @@ const StudioTemplate = ({
               
               Date: {sched.singleDatePicker} <br />
               Time In: {sched.timeIn} Time Out: {sched.timeOut}<br />
-              Price: {handleHoursMin(sched.timeIn, sched.timeOut) * price} 
+              Price: {handleHoursMin(sched.timeIn, sched.timeOut) * price}.00 
             </ListGroupItem>
           
             </div>
@@ -105,6 +106,9 @@ const StudioTemplate = ({
           <b>Total</b>: ${arr.reduce((a, b)=>a+b).toFixed(2)}
           </ListGroupItem> : ""}
       </ListGroup>
+
+            {submitBtn}
+     
     </div>
   );
 };
@@ -149,6 +153,7 @@ class SingleStudioSideFilter extends Component {
       calError: "",
       timeInErr: "",
       timeOutErr: "",
+      submitBtn:  "",
       total: 1
     };
   }
@@ -159,7 +164,8 @@ class SingleStudioSideFilter extends Component {
    
     this.setState({
       studioForm: form,
-      addField: form.length < 1 ? "Add Date & Time" : this.state.addField
+      addField: form.length < 1 ? "Add Date & Time" : this.state.addField,
+      submitBtn: form.length < 1 ? "" : this.state.submitBtn
     });
   };
 
@@ -225,6 +231,7 @@ class SingleStudioSideFilter extends Component {
       this.setState({
         studioForm: form,
         total: this.state.total + price ,
+        submitBtn: <button type="submit" className="btn roberto-btn w-100">Reserve</button>,
         startDate: "",
         timeIn: "",
         timeOut: "",
@@ -232,11 +239,13 @@ class SingleStudioSideFilter extends Component {
         calError: "",
         timeOutErr: ""
       });
+
       this.myFormRef.reset();
     } else {
       noError = 0;
     }
   };
+
 
   handleChangeStartProps = date => {
     this.setState({
@@ -245,6 +254,17 @@ class SingleStudioSideFilter extends Component {
     });
   };
 
+
+//Function tells app to display calendar
+  handleReveal = () => {
+    if (this.state.reveal) {
+      this.setState({ reveal: false });
+    } else {
+      this.setState({ reveal: true });
+    }
+  };
+
+//Adds time values to the form
   handleTime = (e, id) => {
     if (id === "timein") {
       this.setState({ timeIn: e.target.value });
@@ -253,13 +273,7 @@ class SingleStudioSideFilter extends Component {
     }
   };
 
-  handleReveal = () => {
-    if (this.state.reveal) {
-      this.setState({ reveal: false });
-    } else {
-      this.setState({ reveal: true });
-    }
-  };
+ 
 
   handleSubmit = e => {
     e.preventDefault();
@@ -321,12 +335,11 @@ class SingleStudioSideFilter extends Component {
             timeOutErr={timeOutErr}
             price={this.props.price}
             total={this.state.total}
+            submitBtn={this.state.submitBtn}
             
           />
 
-          <button type="submit" className="btn roberto-btn w-100">
-            Reserve
-          </button>
+        
         </form>
       </div>
     );

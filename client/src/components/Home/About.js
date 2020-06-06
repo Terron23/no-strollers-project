@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import logo from './images/sh_logo.png';
-
+import './css/about.css';
 
 const ImageGallery = () => {
   return (

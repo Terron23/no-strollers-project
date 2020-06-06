@@ -22,28 +22,15 @@ const NavMobile =({toggleNavigation, renderContent, showResponsivenavbar, reveal
    ><i className={'fa fa-times'}></i></button>
 
       <li>
-          <Nav.Link href="/">
+          <Link to="/">
        <img src={logo} width="40%"/>
-      </Nav.Link>
+      </Link>
       </li>
         
-      <Nav className="ml-auto">
+    
           {renderContent}
-      
-      </Nav>
-      
-      <li>
-          {/* <Nav.Link>
-        <i className="fa fa-search" onClick={revealSearch}></i>
-      </Nav.Link> */}
-      </li>
 
-      <li>
-          <Nav.Link className="navFade"  href="/search-studio">
-          Book Now{" "}
-          <i className="fa fa-long-arrow-right" aria-hidden="true"></i>
-        </Nav.Link >
-        </li>
+    
         </ul>
         </div>
         

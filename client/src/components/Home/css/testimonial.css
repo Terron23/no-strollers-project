@@ -1,3 +1,8 @@
+.roberto-project-area {
+  margin-top: 20px;
+  background-color: "#0e2737" !important;
+}
+
 .single-project-slide {
   position: relative;
   z-index: 1;

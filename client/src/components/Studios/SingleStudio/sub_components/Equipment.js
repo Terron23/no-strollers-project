@@ -12,7 +12,7 @@ const Equipment = ({ equipment, title }) => {
           </li>
         ))}
       </ul>
-      <div></div>
+  
     </div>
   );
 };

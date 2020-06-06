@@ -10,13 +10,8 @@ const Ameneties = ({services, contact, capacity, description, equipment, include
         <li>
         <i className="sh-text fa fa-check"></i> {s}
         </li>)}
-        
-      
       </ul>
-      <div >
      
-      </div>
-      {/* <p><a className="btn roberto-btn btn-2 contact-btn">Contact Owner</a></p> */}
     </div>
   );
 };

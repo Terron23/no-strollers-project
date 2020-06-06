@@ -39,7 +39,7 @@ class Infinite  extends Component{
     </p>
   }
   // below props only if you need pull down functionality
-  refreshFunction={this.fetchMoreData}
+  refreshFunction={fetchMoreData}
   pullDownToRefresh
   
   >

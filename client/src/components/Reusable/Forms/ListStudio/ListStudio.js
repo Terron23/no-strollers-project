@@ -149,7 +149,7 @@ else{
         studioType,
         studioid: this.props.studioid
       }).then(res=>{
-       alert("hello")
+      
         history.push(`/design/${studioName}/${this.props.studioid}`);
       }).catch(err=>{
         this.setState({variant:"danger", alertClass:"col-md-4 offset-md-3", 

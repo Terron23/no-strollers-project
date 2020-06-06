@@ -46,7 +46,6 @@ class App extends Component {
           <Route path="/sign-up" component={SignUp} />
 
           <Route path="/log-in" component={Login} />
-          {/* <Route path="/post-studio/:id?" component={ListStudio} /> */}
           <Route
             path="/search-studio/:search?/:location?/:startdate?"
             component={StudioSearch}

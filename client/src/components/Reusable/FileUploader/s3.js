@@ -34,13 +34,17 @@ class FileUpload extends Component {
           })
           .then(res => {
             this.setState({ image, variant: "success", hide: true, 
-            alertText: "Image Uploaded Successfully" });
-            console.log(this.state, "state")
+            alertText: "Image Uploaded Successfully",  submitBtn: "" });
+            
           })
           .catch(err => {
             ReactS3Client.deleteFile(fileName)
-              .then(response => console.log(response))
-              .catch(err => console.error(err));
+              .then(response => {
+                this.setState({ variant: "danger", hide: true, 
+                alertText: "Something Went Wrong!",  submitBtn: "" });
+              })
+              .catch(err => { this.setState({ variant: "danger", hide: true, 
+              alertText: "Something Went Wrong!",  submitBtn: "" });});
           });
       })
       .catch(err => console.error(err));
@@ -54,13 +58,13 @@ class FileUpload extends Component {
       image: objectURL,
       submitBtn: (
         <div className="d-flex justify-content-center">
-          <button type="submit" className="btn btn-success btn-sm">
+          <button type="submit" className="btn btn-default btn-sm btn-commit">
             Submit
           </button>
           <button
             type="btn"
             onClick={this.handleDelete}
-            className="btn btn-danger btn-sm"
+            className="btn btn-default btn-sm btn-delete"
           >
             Delete
           </button>

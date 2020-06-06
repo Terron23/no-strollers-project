@@ -13,6 +13,7 @@ import Bonus from "./sub_components/Bonus";
 import Description from "./sub_components/Description";
 import Equipment from "./sub_components/Equipment";
 import SingleStudioSideFilter from "./sub_components/SingleStudioSideFilter";
+import Contact from "./sub_components/Contact";
 import MobileBook from "./sub_components/SingleStudioMobileFilter";
 import Loading from "../../Reusable/Loading/Loading";
 import { Link } from "react-router-dom";
@@ -62,6 +63,7 @@ const Studios = ({
           <Bonus includes={includes} title={"Bonus"} />
           <Equipment equipment={equipment} title={"Equipment"} />
           <Description description={rules} title={"Rules"} />
+          <Contact />
           <Reviews param={param} />
         </div>
         <div className="col-12 col-lg-4 web-search sticky-btn">

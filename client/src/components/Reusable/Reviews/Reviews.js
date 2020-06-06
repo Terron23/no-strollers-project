@@ -22,9 +22,15 @@ constructor(props){
 
 
 
-
   handleTimeStamp =(time)=>{
-    return time.getDay()+'/'+time.getMonth()+'/'+time.getYear();
+  function padDate (dateVal)  {
+    if(dateVal < 10){
+      return `0${dateVal}`
+    }
+    return `${dateVal}`
+   } 
+
+    return `${padDate(time.getDay())}/${padDate(time.getMonth()+1)}/${time.getFullYear()}`;
     }
 
   render(){
@@ -39,9 +45,9 @@ constructor(props){
     <div className="room-review-area mb-100">
       <h4>Reviews</h4>
 
-      <div className="single-room-review-area d-flex align-items-center">
+      <div className="single-room-review-area col-md-6">
       
-{ reviews.length < 1 || Object.values(reviews[0]).length < 1  ? <h4>No Reviews At this time</h4> :
+{ reviews.length < 1 || Object.values(reviews[0]).length < 1  ? <p>No Reviews At this time</p> :
       reviews.map(r=>{
    return (
    <div>
