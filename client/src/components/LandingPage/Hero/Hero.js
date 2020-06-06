@@ -6,6 +6,7 @@ import bg6 from "./images/06.jpg";
 import navImg from "./images/sh_logo.png";
 import "./css/hero.css";
 import Herobg from "./sub_components/Herobg";
+import Emails from "./sub_components/Emails";
 import {Carousel, CarouselItem} from 'react-bootstrap'
 //Wrapper for Component
 

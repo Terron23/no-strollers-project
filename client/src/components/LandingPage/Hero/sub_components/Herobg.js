@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Emails from "./Emails";
 
 const Herobg = ({ bg, logo }) => {
   return (
@@ -17,15 +18,8 @@ const Herobg = ({ bg, logo }) => {
                 <h2 data-animation="fadeInUp" data-delay="500ms">
                   Studio Hunt
                 </h2>
-                <h6 data-animation="fadeInUp" data-delay="200ms">Find, Book, Go!</h6>
-                <Link to="/search-studio"
-                  className="btn roberto-btn btn-2"
-                  data-animation="fadeInUp"
-                  
-                  data-delay="800ms"
-                >
-                  Book Now
-                </Link>
+                <h6 data-animation="fadeInUp" data-delay="200ms">Coming Soon!</h6>
+                <Emails />
               </div>
             </div>
           </div>

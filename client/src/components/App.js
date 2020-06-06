@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Router, Route, Redirect } from "react-router-dom";
 import Header from "./Home/Header";
-import Home from "./Home/Home";
+import Home from "./LandingPage/Hero/Hero";
 import ListStudio from "./ListStudio/AddStudioForm/ListStudio";
 import Availibility from "./ListStudio/Availibility/Availibility";
 import SignUp from "./OAuth/SignUp/SignUp";
@@ -40,7 +40,7 @@ class App extends Component {
     return (
       <Router history={history}>
         <ScrollTop>
-          <Header />
+          {/* <Header /> */}
 
           <Route exact path="/" component={Home} />
           <Route path="/sign-up" component={SignUp} />
@@ -63,7 +63,7 @@ class App extends Component {
           <Route path="/post-studio/:studioName?/:id?" component={ListStudio} />
           <Route path="/confirmation" component={Confirmation} />
           <Route path="/faqs" component={Faq} />
-          <Footer />
+          {/* <Footer /> */}
         </ScrollTop>
       </Router>
     );
