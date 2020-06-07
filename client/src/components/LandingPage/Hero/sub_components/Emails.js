@@ -1,11 +1,15 @@
 import React , {Component} from 'react';
 import axios from 'axios'
+import Modal from "../../../Reusable/Modal/Modal";
 
 export default class Email extends Component{
-    
-    state={
-        signedUp: ""
-    }
+   constructor(props){
+       super(props);
+
+       this.state={
+           error:""
+       }
+   }
 
 handleSubmitEmail =(e)=>{
 
@@ -24,16 +28,16 @@ handleSubmitEmail =(e)=>{
     }
     render(){
    
-
+let {setShow} = this.props;
         return(
-
+<Modal show={setShow}>
             <div className="col-8 offset-2">
             <div className="single-footer-widget mb-80">
         <p className="success">{this.state.error}</p>
               <h5 className="widget-title">Subscribe</h5>
               <span>
                 Enter your email and stay up to date with 
-                news about our launch date and other offers.
+                news about our launch dates and other offers.
               </span>
 
               <form
@@ -55,6 +59,7 @@ handleSubmitEmail =(e)=>{
               </form>
             </div>
           </div>
+          </Modal>
         )
     }
 }
