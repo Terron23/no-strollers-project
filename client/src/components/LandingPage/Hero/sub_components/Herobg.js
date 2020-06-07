@@ -44,14 +44,11 @@ constructor(props){
               }}>
                   Great experiences start here. Studio Hunt is your connection to studios of all varieties. From music to art , sharpen your skills, have some fun, and indulge your creative side at a studio near you. 
 <hr />
-                  <a 
-                  className="btn roberto-btn btn-2"
-                 onClick={this.handleShow}
-                >Subscribe</a>
+<Emails setShow={this.state.setShow}/> 
 
                   </p>
               
-                <Emails setShow={this.state.setShow}/> 
+               
               </div>
             </div>
           </div>
