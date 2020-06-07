@@ -28,8 +28,8 @@ handleSubmitEmail =(e)=>{
 
         return(
 
-            <div className="col-8 offset-2">
-            <div className="single-footer-widget mb-80">
+            <div className="col-12">
+            <div className="single-footer-widget">
         <p className="success">{this.state.error}</p>
        
               <span>

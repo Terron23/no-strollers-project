@@ -37,16 +37,18 @@ constructor(props){
                   Studio Hunt
                 </h2>
                 <h6 data-animation="fadeInUp" data-delay="200ms">Coming Soon!</h6>
-                <p className="col-6 offset-3" 
+                <center><div className="col-lg-6 col-sm-12" 
                 style={{"color": "white", 
                 "border": "solid white 3px",
-                "padding": "15px"
+                "padding": "10px",
+                "fontSize": "15px",
+                "backgroundColor": "rgba(14,39,55, .5)"
               }}>
                   Great experiences start here. Studio Hunt is your connection to studios of all varieties. From music to art , sharpen your skills, have some fun, and indulge your creative side at a studio near you. 
 <hr />
 <Emails setShow={this.state.setShow}/> 
 
-                  </p>
+                  </div></center>
               
                
               </div>
